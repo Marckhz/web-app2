@@ -1,2 +1,2 @@
 
-web: gunicorn -b 0.0.0.0:8080 main:create_app\(\)
+web: gunicorn -b 0.0.0.0:$PORT main:create_app\(\)
