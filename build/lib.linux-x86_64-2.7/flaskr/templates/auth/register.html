@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<meta charset="UTF-8">
+	<title>Registro</title>
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href= {{ url_for('static', filename= 'css/registro_css.css')}}>
+<style>
+body 
+{
+	background:url({{ url_for ('static', filename='img/what-the-hex.png')}})
+}
+</style>
+	
+</head>
+<body>
+		
+	
+	
+		<div class="form-group" id="forms">
+			
+			<div id="title">
+				<p align="center">
+					<h2>
+						Create your personal account
+					</h2>
+				</p>
+			</div>
+
+			{% block content %}
+			<form  method = 'POST' >
+
+				<p align="center">	
+					<label for ="user"></label>
+					<input type="text" placeholder="Enter User Name" name="username"value="" required> 
+				
+					<label for="email"></label>
+				    <input type="text" placeholder="Enter Email" name="email" value="" required>
+
+				    <label for="password"></label>
+				    <input type="password" placeholder="Enter Password" name="password" value="" required>
+
+				    
+				</p>  
+				
+				
+					<p align="center">
+						<button type="submit" class="registerbtn" value="submit">Register</button>
+						
+					</p>
+			{% for message in get_flashed_messages()  %}
+				<div class="flash">{{ message }} </div>
+			{% endfor %}
+					
+			{% endblock  %}
+			
+			    <p align="center">Already have an account? <a href="#">Sign in</a></p>
+
+			   		<hr>
+
+					
+				<p align="center" id="">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+			</form>
+		    
+		 </div>
+
+	
+	
+
+	
+
+	
+
+
+	<script src = "js/jquery.js"></script>
+	<script scr = "js/bootstrap.min.js"></script>
+</body>
+</html>

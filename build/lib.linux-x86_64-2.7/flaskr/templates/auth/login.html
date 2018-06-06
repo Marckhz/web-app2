@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:url({{ url_for('static', filename='img/what-the-hex.png')}})
+      
+      }
+form {border: 3px solid #f1f1f1;}
+
+
+input[type=text], input[type=password] {
+	width:20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	align-items: center;
+	text-align: center;	
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    bottom: 100px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    display: block;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    text-align: center;
+	
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+
+}
+
+#footer{
+  text-align: right;
+  position: fixed;
+  width: 97%;
+  height: 60px;
+  bottom: 0.5px;
+
+}
+
+
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Bienvenido</h2>
+
+{% block content %}
+<form  method="post">
+        <div class="imgcontainer">
+          <img src={{ url_for('static', filename='img/avatar.png')}} alt="Avatar" class="avatar" style="width: 200px;">
+        </div>
+
+        <div class="container">
+          {% for message in get_flashed_messages() %}
+            <div class="flash"> {{ message }} </div>
+          {% endfor %}
+        	
+      	<p align="center">	
+      		<label  id=" my_label"for="uname"><b>Username</b></label>
+      		<input id="my_input "type="text" placeholder="Enter Username" name="username" required>
+      	</p>	
+      	<p align="center">	
+      	    <label for="psw"><b>Password</b></label>
+      	    <input type="password" placeholder="Enter Password" name="password" required>
+
+      	</p>
+      	                 
+          <button type="submit" class="button" value="Log In">Login</button>
+           
+               
+
+          <label style="display: block;">
+            <input type="checkbox" checked="checked" name="remember" ">
+             Remember me
+          </label>
+        </div>
+
+       <div class="container" style="">
+      	<p align="center">
+      		<button type="button" class="cancelbtn">Cancel</button>
+      		<div class="psw">Forgot <a href="#">password?</a></div>
+      		   
+      	</p>
+       </div>
+
+</form>
+{% endblock %}
+
+
+  <footer> 
+        <div class="container" id="footer">
+          <div class="row">
+            <div class="col-md-12">
+              <hr>
+                <p class="pull-left">
+                  <a href="https://elrobotista.com/">ElRobotista.com   2018</a>
+                  <a href="#">Acerca de</a>
+                  <a href="#">Contacto</a>
+                </p>
+
+                
+            </div>
+          </div>
+        </div>
+  </footer>
+          
+
+</body>
+</html>
